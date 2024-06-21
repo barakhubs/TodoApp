@@ -1,20 +1,36 @@
+using Microsoft.EntityFrameworkCore;
+using Todo.Api.Data;
+
+var allowedOrigins = "_allowedOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy(allowedOrigins, builder =>
+	{
+		builder.WithOrigins("http://localhost:3000") // add your frontend domain here
+			.AllowAnyHeader()
+			.AllowAnyMethod();
+	});
+});
+builder.Services.AddControllers();
+
+builder.Services.AddDbContext<TodoDbContext>(options =>
+	options.UseSqlite(connectionString));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 app.UseHttpsRedirection();
+
+app.UseCors(allowedOrigins);
+
+app.MapControllers();
 
 
 app.Run();
