@@ -25,6 +25,8 @@ namespace Todo.Api.Controllers
 		public async Task<IActionResult> GetTodos([FromQuery] TodoParams todoParams) 
 		{
 			IQueryable<TodoList> todoLists = _dbContext.Todos;
+
+			todoLists = todoLists.OrderByDescending(t => t.CreatedAt);
 			
 			if (!string.IsNullOrEmpty(todoParams.Sort))
 			{
@@ -50,7 +52,7 @@ namespace Todo.Api.Controllers
 				
 			}
 
-			// todoLists = todoLists.Take(4);
+			todoLists = todoLists.Take(5);
 			
 			return Ok(await todoLists.ToArrayAsync());
 		}
@@ -84,7 +86,8 @@ namespace Todo.Api.Controllers
 				return BadRequest();
 			}
 			
-			_dbContext.Entry(todoList).State = EntityState.Modified;
+			// _dbContext.Entry(todoList).State = EntityState.Modified;
+			_dbContext.Entry(todoList).Property(t => t.IsActive).IsModified = true;
 			
 			try
 			{

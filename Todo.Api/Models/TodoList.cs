@@ -9,9 +9,8 @@ namespace Todo.Api.Models
 	{
 		public int Id { get; set; }
 		public required string Title { get; set; }
-		public bool IsActive { get; set; }
-		public DateTime CreatedAt { get; set; }
-		
+		public bool IsActive { get; set; } = false;
+		public DateTime CreatedAt { get; set; } = DateTime.Now;
 		
 	}
 }

@@ -1,2 +1,97 @@
-Todo.Api/bin/Debug/*
-Todo.Api/obj/Debug/*
+# .NET Core / .NET 5+ Build Folders
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+.history/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+.idea_modules/
+.idea-settings/
+.idea-workspace/
+
+# Mac files
+*.DS_Store
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Entity Framework
+*.edmx.diagram
+*.edmx.sql
+
+# Azure Web Apps deployment
+.deploy/
+
+# DotNetLocalTest secrets
+dotnet.user.secrets/
+
+# VS for Mac
+.vscode/
+.idea/
+*.sln.iml
+
+# Local History for Visual Studio
+.vs/
+
+# Logs
+*.log
+
+# Browser cache files
+*.ncache
+
+# Resharper files
+_ReSharper/
+*.DotSettings.user
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# npm packages
+node_modules/
+
+# Local History for Visual Studio
+.vs/
+
+# Bower
+bower_components/
+
+# DotNetLocalTest secrets
+dotnet.user.secrets/
+
+# WebAPI specific
+wwwroot/
+appsettings*.json

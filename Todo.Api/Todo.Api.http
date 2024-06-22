@@ -1,25 +1,23 @@
 GET https://localhost:7273/api/todos
 
+
+
 ###
 POST https://localhost:7273/api/todos 
 Content-Type: application/json
 
 {
-  "title": "test",
-  "isactive": false,
-  "created_at": "2024-06-21T21:11:16.8203225"
+  "title": "test"
 }
 
 ###
-PUT https://localhost:7273/api/todos/4 
+PUT https://localhost:7273/api/todos/13 
 Content-Type: application/json
 
 {
-  "id": 4,
-  "title": "tested",
-  "isactive": false,
-  "created_at": "2024-06-21T21:11:16.8203225"
+  "id": 13,
+  "isactive": true
 }
 
 ###
-DELETE https://localhost:7273/api/todos/4
+DELETE https://localhost:7273/api/todos/3
