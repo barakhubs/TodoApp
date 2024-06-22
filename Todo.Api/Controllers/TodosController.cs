@@ -28,6 +28,22 @@ namespace Todo.Api.Controllers
 
 			todoLists = todoLists.OrderByDescending(t => t.CreatedAt);
 			
+			if (!string.IsNullOrEmpty(todoParams.Filter))
+			{
+				switch (todoParams.Filter.ToString())
+				{
+					case "active":
+						todoLists = todoLists.Where(t => t.IsActive == true).OrderBy(t => t.CreatedAt);
+						break;
+					case "inactive":
+						todoLists = todoLists.Where(t => t.IsActive == false).OrderBy(t => t.CreatedAt);
+						break;					
+					default:
+						todoLists = todoLists.OrderByDescending(t => t.CreatedAt);
+						break;
+				}
+			}
+			
 			if (!string.IsNullOrEmpty(todoParams.Sort))
 			{
 				switch (todoParams.Sort)
